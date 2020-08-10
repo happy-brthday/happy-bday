@@ -29,7 +29,6 @@ const animationTimeline = () => {
   const tl = new TimelineMax({ paused: true});
 
   tl
-
     .to("#rocket", 
     4.2, 
     {
@@ -37,6 +36,8 @@ const animationTimeline = () => {
     },
      "+=0.5"
     )
+    .to("#launch", 1.2, { height: "0px", ease: Expo.easeOut })
+    .to("#launch", 1.2, { opacity: 0, ease: Expo.easeOut })
     .to(".img-back", 1.2, { height: "0px", ease: Expo.easeOut })
     .to(".img-back", 1, {display:"none" })
     .from(
@@ -284,7 +285,7 @@ const animationTimeline = () => {
     )
     .to(
       ".nine",
-      0.5,
+      3.5,
       {
         opacity:0
       },
@@ -326,10 +327,10 @@ const animationTimeline = () => {
   // tl.timeScale(2);
 
   // Restart Animation on click
-  const replyBtn = document.getElementById("replay");
-  replyBtn.addEventListener("click", () => {
-    tl.restart();
-  });
+  // const replyBtn = document.getElementById("replay");
+  // replyBtn.addEventListener("click", () => {
+  //   tl.restart();
+  // });
 };
 
 // Import the data to customize and insert them into page
@@ -425,5 +426,6 @@ function playVid() {
   var aud = document.getElementById("myAudio");
   aud.pause();
   aud.currentTime = 0;
+  var vid = document.getElementById("myVideo");
   vid.play();
 }
